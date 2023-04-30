@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="personaldetails.css">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0%;
+    }
+
+    .navbar {
+        background-color: rgb(255, 172, 19);
+        text-align: center;
+    }
+
+    .navbar ul li {
+        list-style: none;
+    display:inline-flex;
+    padding: 20px;
+    margin-right:150px;
+    font-size: 20px;
+    }
+
+    .navbar ul li:hover {
+        background-color: rgb(255, 213, 75);
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .dropdown-content p {
+        /* display: none; */
+        font-size: 20px;
+        padding: 15px;
+        width: 10%;
+        text-align: center;
+        margin-left: 320px;
+        ;
+        background-color: orange;
+    }
+
+    .dropdown-content {
+        display: none;
+    }
+
+    #li2:hover .dropdown-content {
+        display: block;
+    }
+
+    #li4 {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .container {
+        display: flex;
+        width: auto;
+
+    }
+    
+    .col {
+        width: 50%;
+        padding: 1rem;
+        background-color: #ccc;
+        height: 400px;
+        margin: 1rem;
+    }
+
+    @media screen and (max-width: 991px) {
+        .container {
+            display: block;
+            width: 100%;
+        }
+
+        .container .col {
+            width: 100%;
+        }
+    }
+    #itemcontainer{
+        width: 50%;
+        float: left;
+        font-size: 25px;
+    }
+    #itemcontainer p{
+        margin-left: 50px;
+        padding: 10px;
+    }
+    #qtycontainer{
+        width: 50%;
+        margin: auto;
+        font-size: 25px;
+    }
+    #qtycontainer p{
+        padding: 10px;
+    }
+    #disErr{
+        display:none;
+    }
+</style>
+
+<body>
+   
+    <div class="navbar" id="navbar">
+        <ul>
+            <a href="Home.html">
+                <li class="li" id="li1">Home</li>
+            </a>
+            <a href="OrderHere1.html">
+                <li class="li" id="li3">Order Here</li>
+            </a>
+            <a href="cart.html">
+                <li class="li" id="li4">Cart</li>
+            </a> 
+            <a href="yourDetails.html"><li id="li3">your Details</li>
+            </a>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="col">
+            <div id="disErr">
+             <p>Please ADD Items in Cart</p>
+            </div>
+            <div id="itemcontainer">
+                Items :
+                <br>
+            <p id="cartItemsName1"></p>
+            <p id="cartItemsName2"></p>
+            <p id="cartItemsName3"></p>
+            <p id="cartItemsName4"></p>
+            <p id="cartItemsName5"></p>
+            <p id="cartItemsName6"></p>
+            <p id="cartItemsName7"></p>
+            
+            </div>
+            <div id="qtycontainer">
+                Quantity :
+                <br>
+                <p id="Iv1"></p>
+                <p id="Iv2"></p>
+                <p id="Iv3"></p>
+                <p id="Iv4"></p>
+                <p id="Iv5"></p>
+                <p id="Iv6"></p>
+                <p id="Iv7"></p>
+            </div>
+          
+
+
+        </div>
+        <div class="col">
+            <div id="p-Details">
+                <h1 id="personh1">Enter Your Details</h1>
+                <div class="form">
+                    <ul>
+                        <form action="yourDetails.html">
+                            <li><label for="name" id="label1">Your name :</label><br></li>
+        <input type="text" id="name" class="input" placeholder="eg.Veeraj"  autocomplete="off"><br><br>
+                            <li><label for="address" id="label2">Address :</label><br></li>
+        <input type="text" id="address" class="input" placeholder="eg.Om Sai Plaza"  autocomplete="off" ><br><br>
+                         <input type="button" onclick="func1()" id="Submit" value="Submit">
+                        </form>
+                    </ul>
+                    <br>
+                    <p><a href="yourDetails.html"><button>click Here To view Your Details</button></a></p>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</body>
+ <script>
+
+const Name = document.getElementById("name");
+const addres = document.getElementById("address");
+const pname = document.getElementById("Name");
+const paddres = document.getElementById("addres");
+const bttn1 = document.getElementById("Submit");
+function func3(){
+    const yourdetails = document.getElementById("p-last").innerHTML="Your Information is Saved &#128522"
+    window.scrollBy(0, 200);
+}
+bttn1.addEventListener("click",func3);
+
+function func1(){
+    let value1 = Name.value;
+    let value2 = addres.value;
+    localStorage.setItem("Name",value1);
+    localStorage.setItem("Address",value2);
+    return false ;
+}
+
+checkEmpty();
+    function checkEmpty() {
+        for (let index = 1; index <= 7; index++) {
+            var itmname = "cartItemsName"+index;
+            var itmqty = "Iv"+index;
+            var itmqtylcl = localStorage.getItem(itmqty);
+            var itmnamelcl = localStorage.getItem(itmname);
+             console.log(itmnamelcl);
+            if(itmqtylcl > 0){
+                document.getElementById(itmqty).innerHTML = itmqtylcl+"<br>";
+                document.getElementById(itmname).innerHTML = itmnamelcl+"<br>";
+            }
+            else{
+               let n = document.getElementById(itmqty).style.display = 'none';
+               let m = document.getElementById(itmname).style.display = 'none';   
+            
+            }
+    }
+    }
+ function call(){
+    document.getElementsByClassName("col")[0].innerHTML="<h2 style='color:red; margin:100px 0px 0px 100px;'>Please Select Atleast One Item</h2>";
+}
+
+</script>
+
+</html>

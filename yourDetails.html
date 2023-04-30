@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
+</head>
+<style>
+    *{
+        margin: 0px;
+    }
+.LIST ul li{
+    padding: 20px;
+    display:inline-flex;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 150px;
+}
+.LIST ul li:hover{
+    background-color:rgb(255, 213, 75);
+}
+.LIST{
+    text-align: center;
+    background-color:orange ;
+}
+ #li1{
+    /* background-color:rgb(255, 213, 75); */
+     background-color:rgb(255, 255, 255); 
+} 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.information{
+    background-color: #ccc;
+    margin: 50px;
+    text-align: center;
+    padding:100px 50px 100px 50px ;
+}
+
+</style>
+<body>
+    <div class="container">
+            <DIV class="LIST">    
+        <ul>
+            <a href="Home.html"><li>Home</li></a>
+            <a href="OrderHere1.html"><li>Order Here</li></a>
+            <a href="Cart.html"><li>Cart</li></a>
+            <li id="li1">Your Details</li>
+        </ul>
+    </DIV>
+    <div class="information">
+
+        <h2 id="name"></h2>
+<br><br>
+<h2 id="address"></h2>
+    </div>
+    </div>
+</body>
+<script>
+    document.getElementById("name").innerHTML="Your Name : "+localStorage.getItem("Name");
+    document.getElementById("address").innerHTML="Your Address : "+localStorage.getItem("Address");
+
+</script>
+</html>

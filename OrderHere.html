@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="orderHere.css">
+</head>
+<style>
+    .buttonadd{
+    width: 50px;    
+    margin-left: -10px;
+    
+    }
+    .buttonrem{
+        margin-left: -10px;
+        width: 60px;
+    }
+#addcartbtn{
+    /* width: 10%;
+     */
+    float:right ;
+    margin: 20px 150px 15px;
+}
+#filter{
+    /* width: 40%; */
+    float: left;
+    margin: 20px;
+}
+.filter{
+    background-color: rgb(186, 133, 133);
+    color: beige;
+    width: 100%;
+    display: inline-flex; /* margin-bottom: 100px; */
+}
+
+.items1{
+    margin: 10px;
+    float: left;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    /* background-color: rgb(161, 204, 105); */
+}
+.items1:hover .img:hover{
+/* box-shadow: 5px 10px 15px 5px black; */
+box-shadow: 0px 0px 35px 10px rgb(0, 0, 0);
+}
+
+.items2:hover .img:hover{
+box-shadow: 0px 0px 35px 10px rgb(0, 0, 0);
+}
+
+.items2{
+    margin: 10px;
+    float: left;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.items3{
+    margin: 10px;
+    float: left;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}.items3:hover .img:hover{
+box-shadow: 0px 0px 35px 10px rgb(0, 0, 0);
+}
+.items4{
+    margin: 10px;
+    float: left;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}.items4:hover .img:hover{
+box-shadow: 0px 0px 35px 10px rgb(0, 0, 0);
+}
+.items5{
+    margin: 10px;
+    float: left;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}.items5:hover .img:hover{
+box-shadow: 0px 0px 35px 10px rgb(0, 0, 0);
+}
+.items6{
+    margin: 10px;
+    float: left;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.items6:hover .img:hover{
+box-shadow: 0px 0px 35px 10px rgb(0, 0, 0);
+}
+#bttn{
+    font-family:fantasy;
+    font-size: 18px;
+    /* padding: 5px; */
+    width: 200px;
+    height: 25px;
+    margin-top: 20px;
+}
+
+</style>
+<body>
+    <div class="navbar">
+        <ul>
+            <a href="Home.html"><li>Home</li></a>
+            <a><li id="active">Order Here</li></a>
+            <a href="Cart.html"><li id="cart">Cart</li></a>
+            <a href="yourDetails.html"><li>your Details</li></a>
+        </ul>
+    </div>
+    <hr>
+    <div class="filter">
+        <!-- <p id="filter">Filter :</p>
+        <button id="bttn" onclick="filter()">Filter</button> -->
+        <!-- <label for="filter1">Vegetables</label> -->
+        <!-- <input type="radio" class="radio"id="filter1" name="filter" value="Vegetables"> -->
+        <!-- <label for="filter2">Grocery</label> -->
+        <!-- <input type="radio" class="radio" name="filter" id="filter2"> -->
+    <button onclick="fetchitems()" id="addcartbtn">addtoCart</button>
+    </div> 
+    <!-- <div id="filtercontent">
+        <ul id="content">
+            <li>
+                <input type="checkbox" name="filter" id="inputchekveg" onclick="filter1()" checked>Vegetables</li>
+            <li id="Grocery">
+                <input type="checkbox" name="filter" id="inputchek" onclick="filter()">Grocery</li>
+        </ul>
+        </div> -->
+
+<div class="items-container">
+    <ol>
+    <div class="items1" id="item1">
+        <img src="https://nationaltoday.com/wp-content/uploads/2022/06/7-Onion-Day.jpg" onclick="addItems()" class="img"id="img1">
+        <li><p id="itemB1">Onion</p>
+        <input type="text" maxlength="1" class="add" id="itembread1" value="0">
+            <input type="button" id="bread"  class="buttonadd" value="Add" onclick="addItems()">
+            <input type="button" id="remove1" class="buttonrem" value="Remove"  onclick="removeItems()"></li>  
+        </img>
+    </div>   
+        <div class="items1" id="item2">
+            <img src="https://www.organicfacts.net/wp-content/uploads/tomatoes.jpg" onclick="addItems1(this)" class="img"id="img2">
+             <li><p id="itemB2">Tomato</p>
+                <input type="text" maxlength="1" class="add" id="itembread2" value="0">
+                <input type="button" id="tomato"  class="buttonadd" value="Add" onclick="addItems1(this)">
+                <input type="button" id="remove2" class="buttonrem" value="Remove"  onclick="removeItems2()"></li>  
+            </img>
+        </div>    
+            <div class="items1" id="item3">
+                <img src="https://post.healthline.com/wp-content/uploads/2020/09/AN440-Potatoes-732x549-thumb-732x549.jpg" onclick="addItems3()" class="img"id="img3">
+                 <li><p id="itemB3">potato</p>
+                    <input type="text" maxlength="1" class="add" id="itembread3" value="0">
+                    <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems3()">
+                    <input type="button" id="remove1" class="buttonrem" value="Remove"  onclick="removeItems3()"-></li>  
+                </img>
+            </div>
+                <div class="items1" id="item4">
+                    <img src="https://www.thespruceeats.com/thmb/DnsPoLB8RTdNgxY9xzBfY1mpjr8=/2000x1500/filters:fill(auto,1)/greencabbageDianaMiller-750a13ed901b46cd807bee7ed0ed8586.jpg" onclick="addItems4()" class="img"id="img4">
+                     <li><p id="itemB4">Cabbage</p>
+                        <input type="text" maxlength="1" class="add" id="itembread4" value="0">
+                        <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems4()">
+                        <input type="button" id="remove1" class="buttonrem" value="Remove"  onclick="removeItems4()"></li>  
+                    </img>
+                </div>
+                    <div class="items2" id="item5">
+                        <img src="https://assets.epicurious.com/photos/580fc4f68aedcde86f7b9602/master/pass/english-peas-with-mint.jpg" onclick="addItems5()" class="img"id="img5">
+                         <li><p id="itemB5">Green peas</p>
+                            <input type="text" maxlength="1" class="add" id="itembread5" value="0">
+                            <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems5()">
+                            <input type="button" id="remove1" class="buttonrem" value="Remove"  onclick="removeItems5()"></li>  
+                        </img>
+                    </div>
+                        <div class="items2" id="item6">
+                            <img src="https://www.healthifyme.com/blog/wp-content/uploads/2021/12/All-you-need-to-know-about-sweet-corn.jpeg"onclick="addItems6()" class="img"id="img6">
+                             <li><p id="itemB6">corn</p>
+                                <input type="text" maxlength="1" class="add" id="itembread6" value="0">
+                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems6()">
+                                <input type="button" id="remove1" class="buttonrem" value="Remove"  onclick="removeItems6()"></li>  
+                            </img>
+                        </div> 
+                         <div class="items2" id="item7">
+                            <img src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2013/9/16/0/Where_do_pumpkins_grow_overhead_view_on_vine_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1400982091403.jpeg"onclick="addItems7()" class="img"id="img7">
+                             <li><p id="itemB6">pumpkin</p>
+                                <input type="text" maxlength="1" class="add" id="itembread7" value="0">
+                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems7()">
+                                <input type="button" id="remove7" class="buttonrem" value="Remove"  onclick="removeItems7()"></li>  
+                            </img>
+                        </div>
+                        <div class="items2" id="item8">
+                            <img src="https://femina.wwmindia.com/thumb/content/2019/dec/benefits-of-carrots1575626304.jpg?width=1200&height=900"onclick="addItems8()" class="img"id="img8">
+                             <li><p id="itemB6">Carrots</p>
+                                <input type="text" maxlength="1" class="add" id="itembread8" value="0">
+                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems8()">
+                                <input type="button" id="remove8" class="buttonrem" value="Remove"  onclick="removeItems8()"></li>  
+                            </img>
+                        </div>  
+                        <div class="items3" id="item9">
+                            <img src="https://www.organicfacts.net/wp-content/uploads/cucumber.jpg"onclick="addItems9()" class="img"id="img9">
+                             <li><p id="itemB6">Cucumber</p>
+                                <input type="text" maxlength="1" class="add" id="itembread9" value="0">
+                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems9()">
+                                <input type="button" id="remove9" class="buttonrem" value="Remove"  onclick="removeItems9()"></li>  
+                            </img>
+                        </div> 
+                         <div class="items3" id="item10">
+                            <img src="https://images.news18.com/ibnlive/uploads/2022/06/untitled-design-24-16541678803x2.png?impolicy=website&width=510&height=356"onclick="addItems10()" class="img"id="img10">
+                             <li><p id="itemB6">Broccoli</p>
+                                <input type="text" maxlength="1" class="add" id="itembread10" value="0">
+                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems10()">
+                                <input type="button" id="remove10" class="buttonrem" value="Remove"  onclick="removeItems9()"></li>  
+                            </img>
+                        </div>
+                        <div class="items3" id="item11">
+                            <img src="https://static.india.com/wp-content/uploads/2017/08/Bell-pepper.jpg?impolicy=Medium_Resize&w=1200&h=800"onclick="addItems11()" class="img"id="img11">
+                             <li><p id="itemB6">Capsicum</p>
+                                <input type="text" maxlength="1" class="add" id="itembread11" value="0">
+                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems11()">
+                                <input type="button" id="remove11" class="buttonrem" value="Remove"  onclick="removeItems11()"></li>  
+                            </img>
+                        </div>
+                        <div class="items3" id="item12">
+                            <img src="https://st2.depositphotos.com/1001944/5552/i/600/depositphotos_55521083-stock-photo-fresh-beetroot-on-wooden-background.jpg"onclick="addItems12()" class="img"id="img12">
+                             <li><p id="itemB6">Beet Root</p>
+                                <input type="text" maxlength="1" class="add" id="itembread12" value="0">
+                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems12()">
+                                <input type="button" id="remove12" class="buttonrem" value="Remove"  onclick="removeItems12()"></li>  
+                            </img>
+                        </div>
+    </ol>
+    <ol>
+                        <div class="items4" id="item13">
+                            <img src="https://m.media-amazon.com/images/I/41YDq-tchUL._SX385_.jpg" onclick="addItems13()" class="img"id="img13">
+                             <li><p id="itemB2">Oil</p>
+                                <input type="text" maxlength="1" class="add" id="itembread13" value="0">
+                                <input type="button" id="Dal"  class="buttonadd" value="Add" onclick="addItems13()">
+                                <input type="button" id="remove13" class="buttonrem" value="Remove"  onclick="removeItems13()"></li>  
+                            </img>
+                        </div>    
+                            <div class="items4" id="item14">
+                                <img src="https://www.justgotochef.com/img/1629871957-Agrovation-Khapli%20Whole%20Wheat%202500g-Front.jpg" onclick="addItems14()" class="img"id="img14">
+                                 <li><p id="itemB3">Wheat</p>
+                                    <input type="text" maxlength="1" class="add" id="itembread14" value="0">
+                                    <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems14()">
+                                    <input type="button" id="remove14" class="buttonrem" value="Remove"  onclick="removeItems14()"-></li>  
+                                </img>
+                            </div>
+                                <div class="items4" id="item15">
+                                    <img src="https://5.imimg.com/data5/XU/PP/CI/SELLER-66888523/500gm-kala-chana-500x500.jpg" onclick="addItems15()" class="img"id="img15">
+                                     <li><p id="itemB4">Chana</p>
+                                        <input type="text" maxlength="1" class="add" id="itembread15" value="0">
+                                        <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems15()">
+                                        <input type="button" id="remove15" class="buttonrem" value="Remove"  onclick="removeItems15()"></li>  
+                                    </img>
+                                </div>
+                                    <div class="items4" id="item16">
+                                        <img src="https://cdn.shopify.com/s/files/1/0474/0910/2997/products/PHOTO-2021-03-22-17-21-12.jpg?v=1643013941" onclick="addItems16()" class="img"id="img16">
+                                         <li><p id="itemB5">Rice</p>
+                                            <input type="text" maxlength="1" class="add" id="itembread16" value="0">
+                                            <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems16()">
+                                            <input type="button" id="remove16" class="buttonrem" value="Remove"  onclick="removeItems16()"></li>  
+                                        </img>
+                                    </div>
+                                        <div class="items5" id="item17">
+                                            <img src="https://m.media-amazon.com/images/I/51vo638ZXAL.jpg"onclick="addItems17()" class="img"id="img17">
+                                             <li><p id="itemB6">Kidney Beans</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread17" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems17()">
+                                                <input type="button" id="remove17" class="buttonrem" value="Remove"  onclick="removeItems17()"></li>  
+                                            </img>
+                                        </div> 
+                                         <div class="items5" id="item18">
+                                            <img src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2013/9/16/0/Where_do_pumpkins_grow_overhead_view_on_vine_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1400982091403.jpeg"onclick="addItems18()" class="img"id="img18">
+                                             <li><p id="itemB6">pumpkin</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread18" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems18()">
+                                                <input type="button" id="remove18" class="buttonrem" value="Remove"  onclick="removeItems18()"></li>  
+                                            </img>
+                                        </div>
+                                        <div class="items5" id="item19">
+                                            <img src="https://femina.wwmindia.com/thumb/content/2019/dec/benefits-of-carrots1575626304.jpg?width=1200&height=900"onclick="addItems19()" class="img"id="img19">
+                                             <li><p id="itemB6">Carrots</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread19" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems19()">
+                                                <input type="button" id="remove19" class="buttonrem" value="Remove"  onclick="removeItems19()"></li>  
+                                            </img>
+                                        </div>  
+                                        <div class="items5" id="item20">
+                                            <img src="https://www.organicfacts.net/wp-content/uploads/cucumber.jpg"onclick="addItems20()" class="img"id="img20">
+                                             <li><p id="itemB6">Cucumber</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread20" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems20()">
+                                                <input type="button" id="remove20" class="buttonrem" value="Remove"  onclick="removeItems20()"></li>  
+                                            </img>
+                                        </div> 
+                                         <div class="items6" id="item21">
+                                            <img src="https://images.news18.com/ibnlive/uploads/2022/06/untitled-design-24-16541678803x2.png?impolicy=website&width=510&height=356"onclick="addItems21()" class="img"id="img21">
+                                             <li><p id="itemB6">Broccoli</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread21" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems21()">
+                                                <input type="button" id="remove21" class="buttonrem" value="Remove"  onclick="{}"></li>  
+                                            </img>
+                                        </div>
+                                        <div class="items6" id="item22">
+                                            <img src="https://static.india.com/wp-content/uploads/2017/08/Bell-pepper.jpg?impolicy=Medium_Resize&w=1200&h=800"onclick="addItems22()" class="img"id="img22">
+                                             <li><p id="itemB6">Capsicum</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread22" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems22()">
+                                                <input type="button" id="remove22" class="buttonrem" value="Remove"  onclick="removeItems22()"></li>  
+                                            </img>
+                                        </div>
+                                        <div class="items6" id="item23">
+                                            <img src="https://st2.depositphotos.com/1001944/5552/i/600/depositphotos_55521083-stock-photo-fresh-beetroot-on-wooden-background.jpg"onclick="addItems23()" class="img"id="img23">
+                                             <li><p id="itemB6">Beet Root</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread23" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems23()">
+                                                <input type="button" id="remove23" class="buttonrem" value="Remove"  onclick="removeItems23()"></li>  
+                                            </img>
+                                        </div>
+                                        <div class="items6" id="item24">
+                                            <img src="https://st2.depositphotos.com/1001944/5552/i/600/depositphotos_55521083-stock-photo-fresh-beetroot-on-wooden-background.jpg"onclick="addItems24()" class="img"id="img24">
+                                             <li><p id="itemB6">Beet Root</p>
+                                                <input type="text" maxlength="1" class="add" id="itembread24" value="0">
+                                                <input type="button" id=""  class="buttonadd" value="Add" onclick="addItems24()">
+                                                <input type="button" id="remove24" class="buttonrem" value="Remove"  onclick="removeItems24()"></li>  
+                                            </img>
+                                        </div>
+                        </ol>
+
+</div>
+
+</body>
+<script>
+   const itemsForCart = {tomato:0};
+                 
+    function addItems(){
+        if($("div").attr("id") == "itembread1"){
+        let i = 1;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }}
+    function  addItems1(event){
+       
+        var a = event.getAttribute('id');
+        console.log(a);
+        for (let x in itemsForCart) {
+            const element = x;
+            console.log(element);
+            if (element == a) {
+                let eleQtyEach = itemsForCart[element];
+                itemsForCart.a = parseInt(eleQtyEach)+1;
+                console.log(itemsForCart.a);
+            }
+            else{
+                itemsForCart.a = 1;
+                console.log("else");
+                for (let x in itemsForCart) {
+                    console.log(itemsForCart);
+                }
+            }
+        }
+        let i = 2;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems3(){
+        let i = 3;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems4(){
+        let i = 4;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems5(){
+        let i = 5;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems6(){
+        let i = 6;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems7(){
+        let i = 7;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems8(){
+        let i = 8;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems9(){
+        let i = 9;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems10(){
+        let i = 10;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+  
+    function removeItems(){
+    qtybreadd = document.getElementById("itembread1").value ;
+      document.getElementById("itembread1").value = parseInt(qtybreadd)-1;
+}
+    function removeItems2(){
+        let qtybreadd = document.getElementById("itembread2").value ;
+        document.getElementById("itembread2").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems3(){
+        let qtybreadd = document.getElementById("itembread3").value ;
+        document.getElementById("itembread3").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems4(){
+        let qtybreadd = document.getElementById("itembread4").value ;
+        document.getElementById("itembread4").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems5(){
+        let qtybreadd = document.getElementById("itembread5").value ;
+        document.getElementById("itembread5").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems6(){
+        let qtybreadd = document.getElementById("itembread6").value ;
+        document.getElementById("itembread6").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems7(){
+        let qtybreadd = document.getElementById("itembread7").value ;
+        document.getElementById("itembread7").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems8(){
+        let qtybreadd = document.getElementById("itembread8").value ;
+        document.getElementById("itembread8").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems9(){
+        let qtybreadd = document.getElementById("itembread9").value ;
+        document.getElementById("itembread9").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems10(){
+        let qtybreadd = document.getElementById("itembread10").value ;
+        document.getElementById("itembread10").value = parseInt(qtybreadd)-1; 
+    } function removeItems11(){
+        let qtybreadd = document.getElementById("itembread11").value ;
+        document.getElementById("itembread11").value = parseInt(qtybreadd)-1; 
+    } function removeItems12(){
+        let qtybreadd = document.getElementById("itembread12").value ;
+        document.getElementById("itembread12").value = parseInt(qtybreadd)-1; 
+    }function addItems13(){
+        let i = 1;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function  addItems14(){
+        let i = 2;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems15(){
+        let i = 3;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems16(){
+        let i = 4;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems17(){
+        let i = 5;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems18(){
+        let i = 6;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems19(){
+        let i = 7;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems20(){
+        let i = 8;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems21(){
+        let i = 9;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+    function addItems22(){
+        let i = 10;
+            let qtybreadd = document.getElementById("itembread"+i).value ;
+    document.getElementById("itembread"+i).value = parseInt(qtybreadd)+1;
+    }
+  
+    function removeItems(){
+    qtybreadd = document.getElementById("itembread1").value ;
+      document.getElementById("itembread1").value = parseInt(qtybreadd)-1;
+}
+    function removeItems2(){
+        let qtybreadd = document.getElementById("itembread2").value ;
+        document.getElementById("itembread2").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems3(){
+        let qtybreadd = document.getElementById("itembread3").value ;
+        document.getElementById("itembread3").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems4(){
+        let qtybreadd = document.getElementById("itembread4").value ;
+        document.getElementById("itembread4").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems5(){
+        let qtybreadd = document.getElementById("itembread5").value ;
+        document.getElementById("itembread5").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems6(){
+        let qtybreadd = document.getElementById("itembread6").value ;
+        document.getElementById("itembread6").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems7(){
+        let qtybreadd = document.getElementById("itembread7").value ;
+        document.getElementById("itembread7").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems8(){
+        let qtybreadd = document.getElementById("itembread8").value ;
+        document.getElementById("itembread8").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems9(){
+        let qtybreadd = document.getElementById("itembread9").value ;
+        document.getElementById("itembread9").value = parseInt(qtybreadd)-1; 
+    }
+    function removeItems10(){
+        let qtybreadd = document.getElementById("itembread10").value ;
+        document.getElementById("itembread10").value = parseInt(qtybreadd)-1; 
+    } function removeItems11(){
+        let qtybreadd = document.getElementById("itembread11").value ;
+        document.getElementById("itembread11").value = parseInt(qtybreadd)-1; 
+    } function removeItems12(){
+        let qtybreadd = document.getElementById("itembread12").value ;
+        document.getElementById("itembread12").value = parseInt(qtybreadd)-1; 
+    }
+
+
+if(inputchek.addEventListener("click",filter)==true){
+  inputchek.checked=true;
+  }
+    let inputchekveg = document.getElementById("inputchekveg");
+if(onclick="inputchekveg"==true){
+    inputchekveg.checked=true
+    filter1();   
+}
+    function filter(){
+        let inputchek =  document.getElementById("inputchek");
+        I1 = document.getElementsByClassName("items1");
+        for(let i = 0 ; i<I1.length ; i++){
+            I1[i].style.display="none";
+        }
+        I2 = document.getElementsByClassName("items2");
+        for(let i = 0 ; i<I2.length ; i++){
+            I2[i].style.display="none";
+        }
+        I3 = document.getElementsByClassName("items3");
+        for(let i = 0 ; i<I3.length ; i++){
+            I3[i].style.display="none";
+        }
+        inputchek.addEventListener("click",ck())
+function ck(){
+    inputchekveg.checked=false;}
+    }
+    function filter1(){
+        I1 = document.getElementsByClassName("items1");
+        for(let i = 0 ; i<I1.length ; i++){
+            I1[i].style.display="block";
+        }
+        I2 = document.getElementsByClassName("items2");
+        for(let i = 0 ; i<I2.length ; i++){
+            I2[i].style.display="block";
+        }
+        I3 = document.getElementsByClassName("items3");
+        for(let i = 0 ; i<I3.length ; i++){
+            I3[i].style.display="block";
+        }
+    }
+
+    
+
+function fetchitems(){
+let a = "itemB";
+        let item1 = document.getElementById(a+1).textContent;
+        let item2 = document.getElementById("itemB2").textContent;
+        let item3 = document.getElementById("itemB3").textContent;
+        let item4 = document.getElementById("itemB4").textContent;
+        let item5 = document.getElementById(a+5).textContent;
+        let item6 = document.getElementById(a+6).textContent;
+        localStorage.setItem("cartItemsName1",item1);
+        localStorage.setItem("cartItemsName2",item2);
+        localStorage.setItem("cartItemsName3",item3);
+        localStorage.setItem("cartItemsName4",item4);
+        localStorage.setItem("cartItemsName5",item5);
+        localStorage.setItem("cartItemsName6",item6);
+
+
+        let cartqty1 = document.getElementById("itembread1").value;
+        let cartqty2 = document.getElementById("itembread2").value;
+        let cartqty3 = document.getElementById("itembread3").value;
+        let cartqty4 = document.getElementById("itembread4").value;
+        let cartqty5 = document.getElementById("itembread5").value;
+        let cartqty6 = document.getElementById("itembread6").value;
+        localStorage.setItem("Iv1",cartqty1);
+        localStorage.setItem("Iv2",cartqty2);
+        localStorage.setItem("Iv3",cartqty3);
+        localStorage.setItem("Iv4",cartqty4);
+        localStorage.setItem("Iv5",cartqty5);
+        localStorage.setItem("Iv6",cartqty6);
+}
+
+</script>
+</html>
